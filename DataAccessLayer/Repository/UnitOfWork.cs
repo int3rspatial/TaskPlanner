@@ -1,5 +1,4 @@
-﻿using DataAccessLayer.Models;
-using DataAccessLayer.Repository.IRepository;
+﻿using DataAccessLayer.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +20,6 @@ namespace DataAccessLayer.Repository
             Employee = new EmployeeRepository(_db);
         }
         
-
         public void SaveChanges()
         {
             _db.SaveChanges();

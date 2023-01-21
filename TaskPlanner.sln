@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{8C30C14F-44A7-4EC4-8469-B61FB11DCB37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLevel", "BusinessLogicLevel\BusinessLogicLevel.csproj", "{0DCBD80C-4028-43EB-9809-75C75987B388}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8C30C14F-44A7-4EC4-8469-B61FB11DCB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C30C14F-44A7-4EC4-8469-B61FB11DCB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C30C14F-44A7-4EC4-8469-B61FB11DCB37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DCBD80C-4028-43EB-9809-75C75987B388}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DCBD80C-4028-43EB-9809-75C75987B388}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DCBD80C-4028-43EB-9809-75C75987B388}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DCBD80C-4028-43EB-9809-75C75987B388}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
