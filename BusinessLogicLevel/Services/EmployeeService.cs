@@ -3,6 +3,8 @@ using BusinessLogicLevel.Interfaces;
 using BusinessLogicLevel.Models;
 using DataAccessLayer.Repository.IRepository;
 using DataAccessLayer.Entities;
+using Task = DataAccessLayer.Entities.Task;
+using SharedTypes.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +31,28 @@ namespace BusinessLogicLevel.Services
             }
         }
 
+        public void AddTaskToEmployee(int employeeId, int taskId)
+        {
+            Task task = _database.Tasks.GetFirstOrDefault(x => x.Id == taskId);
+            Employee employee = _database.Employees.GetFirstOrDefault(x => x.Id == employeeId);
+            if(employee.FreeHours >= task.EstimatedTime)
+            {
+                employee.Tasks.Add(task);
+                employee.FreeHours -= task.EstimatedTime;
+                _database.Employees.Update(employee);
+                _database.SaveChanges();
+            }
+        }
+
         public EmployeeModel GetEmployeeById(int employeeId)
         {
             Employee employee = _database.Employees.GetFirstOrDefault(x => x.Id == employeeId);
+            return _mapper.Map<EmployeeModel>(employee);
+        }
+
+        public EmployeeModel GetEmployeeByName(string name)
+        {
+            Employee employee = _database.Employees.GetFirstOrDefault(x => x.Name == name);
             return _mapper.Map<EmployeeModel>(employee);
         }
 
@@ -46,9 +67,9 @@ namespace BusinessLogicLevel.Services
             Employee employee = _database.Employees.GetFirstOrDefault(x => x.Id == employeeId);
             foreach (var item in employee.Tasks)
             {
-                if(item.TaskStatus == DataAccessLayer.Enums.TaskStatus.InProgress)
+                if(item.TaskStatus == SharedTypes.Enums.TaskStatus.InProgress)
                 {
-                    item.TaskStatus = DataAccessLayer.Enums.TaskStatus.ToDo;
+                    item.TaskStatus = SharedTypes.Enums.TaskStatus.ToDo;
                 }
             }
             _database.Employees.Remove(employee);

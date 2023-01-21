@@ -1,4 +1,4 @@
-﻿using DataAccessLayer.Enums;
+﻿using SharedTypes.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +14,6 @@ namespace BusinessLogicLevel.Models
         public string? Description { get; set; }
         public int EstimatedTime { get; set; }
         public TaskPriority TaskPriority { get; set; }
-        public DataAccessLayer.Enums.TaskStatus TaskStatus { get; set; }
+        public SharedTypes.Enums.TaskStatus TaskStatus { get; set; }
     }
 }

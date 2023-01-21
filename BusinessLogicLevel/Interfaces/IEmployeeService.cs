@@ -11,7 +11,9 @@ namespace BusinessLogicLevel.Interfaces
     {
         void AddEmployee(EmployeeModel employeeModel);
         EmployeeModel GetEmployeeById(int employeeId);
+        EmployeeModel GetEmployeeByName(string name);
         IEnumerable<EmployeeModel> GetEmployees();
         void RemoveEmployee(int employeeId);
+        void AddTaskToEmployee(int employeeId, int taskId);
     }
 }

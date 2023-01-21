@@ -3,6 +3,7 @@ using BusinessLogicLevel.Interfaces;
 using BusinessLogicLevel.Models;
 using DataAccessLayer.Repository.IRepository;
 using Task = DataAccessLayer.Entities.Task;
+using SharedTypes.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,22 @@ namespace BusinessLogicLevel.Services
         {
             _mapper = mapper;
             _database = database;
+        }
+
+        public void ChangeTaskPriority(int taskId, TaskPriority taskPriority)
+        {
+            Task task = _database.Tasks.GetFirstOrDefault(x => x.Id == taskId);
+            task.TaskPriority = taskPriority;
+            _database.Tasks.Update(task);
+            _database.SaveChanges();
+        }
+
+        public void ChangeTaskStatus(int taskId, SharedTypes.Enums.TaskStatus taskStatus)
+        {
+            Task task = _database.Tasks.GetFirstOrDefault(x => x.Id == taskId);
+            task.TaskStatus = taskStatus;
+            _database.Tasks.Update(task);
+            _database.SaveChanges();
         }
 
         public void CreateTask(TaskModel taskModel)

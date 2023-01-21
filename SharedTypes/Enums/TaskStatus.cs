@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Enums
+namespace SharedTypes.Enums
 {
-    public enum TaskPriority
+    public enum TaskStatus
     {
-        Low, Medium, High
+        ToDo, InProgress, Completed
     }
 }
