@@ -8,8 +8,8 @@ namespace DataAccessLayer.Repository.IRepository
 {
     public interface IUnitOfWork
     {
-        ITaskRepository Task { get; }
-        IEmployeeRepository Employee { get; }
+        ITaskRepository Tasks { get; }
+        IEmployeeRepository Employees { get; }
         void SaveChanges();
     }
 }

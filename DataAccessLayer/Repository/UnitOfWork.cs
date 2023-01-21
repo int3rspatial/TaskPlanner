@@ -9,15 +9,15 @@ namespace DataAccessLayer.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public ITaskRepository Task { get; private set; }
-        public IEmployeeRepository Employee { get; private set; }
+        public ITaskRepository Tasks { get; private set; }
+        public IEmployeeRepository Employees { get; private set; }
 
         private ApplicationDbContext _db;
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
-            Task = new TaskRepository(_db);
-            Employee = new EmployeeRepository(_db);
+            Tasks = new TaskRepository(_db);
+            Employees = new EmployeeRepository(_db);
         }
         
         public void SaveChanges()
