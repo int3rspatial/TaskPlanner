@@ -19,13 +19,15 @@ namespace BusinessLogicLevel
         ApplicationDbContext dbContext;
         IUnitOfWork unitOfWork;
         Mapper mapper;
-        public ITaskService taskService { get; }
+        public ITaskService TaskService { get; }
+        public IEmployeeService EmployeeService { get; }
         public ServiceModule()
         {
             dbContext = new ApplicationDbContext();
             unitOfWork = new UnitOfWork(dbContext);
             mapper = new Mapper(ConfigurateMapper());
-            taskService = new TaskService(mapper, unitOfWork);
+            TaskService = new TaskService(mapper, unitOfWork);
+            EmployeeService = new EmployeeService(mapper, unitOfWork);
         }
         private MapperConfiguration ConfigurateMapper()
         {
