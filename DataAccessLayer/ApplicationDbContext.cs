@@ -12,9 +12,10 @@ namespace DataAccessLayer
     {
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Employee> Employees { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=LAPTOP-HP;Database=TaskPlanner;Trusted_Connection=True;TrustServerCertificate=True;");
-        }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server=LAPTOP-HP;Database=TaskPlanner;Trusted_Connection=True;TrustServerCertificate=True;");
+        //}
     }
 }

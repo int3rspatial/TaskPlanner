@@ -23,7 +23,7 @@ namespace BusinessLogicLevel
         public IEmployeeService EmployeeService { get; }
         public ServiceModule()
         {
-            dbContext = new ApplicationDbContext();
+            //dbContext = new ApplicationDbContext();
             unitOfWork = new UnitOfWork(dbContext);
             mapper = new Mapper(ConfigurateMapper());
             TaskService = new TaskService(mapper, unitOfWork);
