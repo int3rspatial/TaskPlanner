@@ -15,9 +15,9 @@ namespace BusinessLogicLevel.Services
 {
     public class EmployeeService : IEmployeeService
     {
-        private Mapper _mapper;
         private IUnitOfWork _database;
-        public EmployeeService(Mapper mapper, IUnitOfWork database)
+        private IMapper _mapper;
+        public EmployeeService(IUnitOfWork database, IMapper mapper)
         {
             _mapper = mapper;
             _database = database;

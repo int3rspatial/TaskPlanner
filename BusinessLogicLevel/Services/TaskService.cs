@@ -14,9 +14,9 @@ namespace BusinessLogicLevel.Services
 {
     public class TaskService : ITaskService
     {
-        private Mapper _mapper;
         private IUnitOfWork _database;
-        public TaskService(Mapper mapper, IUnitOfWork database)
+        private IMapper _mapper;
+        public TaskService(IUnitOfWork database, IMapper mapper)
         {
             _mapper = mapper;
             _database = database;
