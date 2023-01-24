@@ -44,6 +44,12 @@ namespace BusinessLogicLevel.Services
             }
         }
 
+        public void EditEmployee(EmployeeModel employeeModel)
+        {
+            _database.Employees.Update(_mapper.Map<Employee>(employeeModel));
+            _database.SaveChanges();
+        }
+
         public EmployeeModel GetEmployeeById(int employeeId)
         {
             Employee employee = _database.Employees.GetFirstOrDefault(x => x.Id == employeeId);

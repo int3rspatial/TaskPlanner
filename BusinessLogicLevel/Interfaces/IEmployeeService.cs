@@ -10,6 +10,7 @@ namespace BusinessLogicLevel.Interfaces
     public interface IEmployeeService
     {
         void AddEmployee(EmployeeModel employeeModel);
+        void EditEmployee(EmployeeModel employeeModel);
         EmployeeModel GetEmployeeById(int employeeId);
         EmployeeModel GetEmployeeByName(string name);
         IEnumerable<EmployeeModel> GetEmployees();

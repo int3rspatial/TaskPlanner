@@ -11,6 +11,7 @@ namespace BusinessLogicLevel.Interfaces
     public interface ITaskService
     {
         void CreateTask(TaskModel taskModel);
+        void EditTask(TaskModel taskModel);
         TaskModel GetTaskById(int taskId);
         IEnumerable<TaskModel> GetTasks();
         void DeleteTask(int taskId);

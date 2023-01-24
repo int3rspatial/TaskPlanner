@@ -2,12 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using BusinessLogicLevel;
 using BusinessLogicLevel.Interfaces;
 using BusinessLogicLevel.Services;
+using TaskPlannerWeb.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.InjectDependencies(builder.Configuration);
+
+builder.Services.AddAutoMapper(typeof(ViewAutoMapperProfile));
 
 var app = builder.Build();
 

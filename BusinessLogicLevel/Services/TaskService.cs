@@ -54,6 +54,12 @@ namespace BusinessLogicLevel.Services
             _database.SaveChanges();
         }
 
+        public void EditTask(TaskModel taskModel)
+        {
+            _database.Tasks.Update(_mapper.Map<Task>(taskModel)); 
+            _database.SaveChanges();
+        }
+
         public TaskModel GetTaskById(int taskId)
         {
             Task task = _database.Tasks.GetFirstOrDefault(x => x.Id == taskId);
