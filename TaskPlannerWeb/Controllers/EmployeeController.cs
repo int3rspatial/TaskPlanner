@@ -39,7 +39,7 @@ namespace TaskPlannerWeb.Controllers
             {
                 return NotFound();
             }
-            var employee = _employeeService.GetEmployeeById((int)id);
+            var employee = _employeeService.GetEmployeeById(id.Value);
             return View(_mapper.Map<EmployeeViewModel>(employee));
         }
         [HttpPost]
@@ -52,7 +52,7 @@ namespace TaskPlannerWeb.Controllers
         }
         public IActionResult Delete(int? id)
         {
-            if (id == null || id == 0)
+            if (IsValidIdentifier(id))
             {
                 return NotFound();
             }
@@ -60,5 +60,10 @@ namespace TaskPlannerWeb.Controllers
             TempData["success"] = "Employee removed successfully";
             return RedirectToAction("Index");
         }
+        private bool IsValidIdentifier(int? id)
+        {
+            return !(id.HasValue || id == 0);
+        }
+
     }
 }
